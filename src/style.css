@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css?family=Pacifico");
+
+body {
+    background-color: rgb(58, 58, 58);
+}
+
+.title {
+    margin-bottom: 50px;
+    font-size: 32px;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+    color: rgb(88, 98, 231);
+}
+
+.main-panel {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 50px;
+    width: 350px;
+}
+
+.hole {
+    width: 32px;
+    height: 32px;
+    border: 3px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    margin: 0 7px;
+    cursor: pointer;
+}
+
+.holes {
+    height: 50px;    
+    display: flex;
+    align-items: center;    
+}
+
+.sep {
+    width:1px;
+    height: 50px;    
+    background-color: rgb(136, 136, 136);
+    margin: 0 15px;
+}
+
+.row {
+    height: 50px;
+    display: flex;
+    margin-bottom: 20px;
+}
+
+li {
+    list-style: none;
+}
+
+.small-row {
+    width: 50px;
+    display: flex;
+    justify-content: space-around;
+    margin: 8px 0;
+}
+
+.score-box {
+    height: 50px;
+    width: 50px;
+}
+
+.check-box {
+    text-align: center;
+    margin-left: 50px;
+}
+
+.check-btn {
+    width: 60px;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: #fff;
+    outline: none;
+    transition: .2s all ease-in-out;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.check-btn:hover {
+    background-color: #eee;
+}
+
+.small-hole {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #eee;
+}
+
+.color-box {
+    width: 200px;
+    height: 40px;
+    padding: 4px 2px;
+    border-radius: 5px;
+    background-color:#ffffff;
+    position: relative;
+    left: 16px;
+    top: 16px;
+    z-index: 9999;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.point {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 50%;
+    margin-left: 0 4px;
+}
