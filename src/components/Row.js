@@ -14,8 +14,9 @@ class Row extends Component {
                         holes={this.props.row}
                         colorChange={this.props.colorChange}
                     />
-                    <Score />
-                    <Check check={this.props.check}/>
+
+                    <Score score={this.props.score} />
+                    <Check check={this.props.check} isDisabled={this.props.isDisabled}/>
                 </div>
             </div>
         );

@@ -12,6 +12,13 @@ class Game extends Component {
         holeToUpdate.color = color;
     }
 
+    isDisabledCheck = () => {
+        let checked = this.props.game.currentRow.map((actualRow, i) => 
+            actualRow ? false : true
+        )
+        console.log(checked)
+    }
+
     render() {
         return (
             <div className="main-panel">
@@ -19,7 +26,9 @@ class Game extends Component {
                 <Row 
                     row={this.props.game.currentRow}
                     colorChange={this.selectColor}
-                    check={this.check}
+                    check={this.props.check}
+                    score={this.props.game.score}
+                    isDisabled={this.isDisabledCheck()}
                 />
             </div>
         );

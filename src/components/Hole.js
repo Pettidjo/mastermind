@@ -27,7 +27,8 @@ class Hole extends Component {
                         colorMaster.map((color ,i) => 
                         <Peg key={`peg-${i}`} 
                         color={color} 
-                        selectColor={() => this.clicOnHole(color)}/>)
+                        selectColor={() => this.clicOnHole(color)}
+                        />)
                     }
                 </div> 
                  : null }

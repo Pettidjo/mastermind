@@ -2,12 +2,12 @@ import {gameTypes} from './game.types';
 
 export const check = () => {
     return {
-        type: gameTypes.GAME_CHECK
+        type: gameTypes.CHECK
     }
 }
 
 export const selectColor = () => {
     return {
-        type: gameTypes.SELECT_COLOR
+        type: gameTypes.COLOR
     }
 }
