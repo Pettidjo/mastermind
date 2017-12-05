@@ -37,9 +37,31 @@ function randomColor(colorMaster) {
 }
 
 function check(currentRow, soluceRow) {
+    console.log(soluceRow);
     
-    const test = currentRow.map((actualColor, i) => 
-        actualColor.color === soluceRow[i].color ? {color: "red"} : {color: "black"}
-    )
-    return test;
+    const checkedScore = currentRow.map((actualColor, i) => {
+        if(actualColor.color === soluceRow[i].color) {
+            return {
+                color: "red"
+            }
+        } else if ((actualColor.color !== soluceRow[i].color) && (search(actualColor.color, soluceRow)) ) {
+            return {
+                color: "black"
+            }
+        } else {
+            return {
+                color: ""
+            }
+        }
+    })
+
+    return checkedScore;
+}
+
+function search(nameKey, myArray){
+    for (let i=0; i < myArray.length; i++) {
+        if (myArray[i].color === nameKey) {
+            return true;
+        }
+    }
 }
