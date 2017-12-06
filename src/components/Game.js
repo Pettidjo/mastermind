@@ -12,23 +12,28 @@ class Game extends Component {
         holeToUpdate.color = color;
     }
 
-    isDisabledCheck = () => {
-        let checked = this.props.game.currentRow.map((actualRow, i) => 
-            actualRow ? false : true
-        )
-        console.log(checked)
-    }
-
     render() {
         return (
             <div className="main-panel">
                 <h1 className="title">MasterMind</h1>
+                { this.props.game.playedRows
+                 ? this.props.game.playedRows.map((actualPlayedRow, i) => 
+                    <Row key={`RowPlayed-${i}`}
+                    row={this.props.game.playedRows[i]}
+                    colorChange={this.selectColor}
+                    check={this.props.check}
+                    score={this.props.game.playedScore[i]}
+                    isDisabled={this.props.game.checkBtn}
+                    />  
+                ) : null
+                }
+
                 <Row 
                     row={this.props.game.currentRow}
                     colorChange={this.selectColor}
                     check={this.props.check}
                     score={this.props.game.score}
-                    isDisabled={this.isDisabledCheck()}
+                    isDisabled={this.props.game.checkBtn}
                 />
             </div>
         );

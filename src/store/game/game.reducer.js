@@ -3,23 +3,29 @@ import { gameTypes } from "./game.types";
 const colorMaster = ["blue", "red", "yellow", "green" , "cyan" , "pink"];
 
 const initialState = {
+    soluceRow: [ randomColor(colorMaster), randomColor(colorMaster), randomColor(colorMaster), randomColor(colorMaster) ],
     currentRow: [{}, {}, {}, {}],
     playedRows: [],
-    soluceRow: [ randomColor(colorMaster), randomColor(colorMaster), randomColor(colorMaster), randomColor(colorMaster) ],
-    score: [{}, {}, {}, {}]
+    score: [{}, {}, {}, {}],
+    playedScore: [],
+    checkBtn: false
 }
 
 export const game = (state = initialState, action) => {
+    console.log(state.playedRows);
     switch(action.type) {
         case gameTypes.COLOR:
             return {
                 ...state,
-                    currentRow: state.currentRow
+                    currentRow: state.currentRow,
+                    checkBtn: verifiedBtn()
             }
         case gameTypes.CHECK:
             return {
                 ...state,
-                    score: check(state.currentRow, state.soluceRow)
+                    currentRow: [{}, {}, {}, {}],
+                    playedRows:[...state.playedRows, state.currentRow],
+                    playedScore: [...state.playedScore, check(state.currentRow, state.soluceRow)],
             }
         default:
             return state;
@@ -37,8 +43,6 @@ function randomColor(colorMaster) {
 }
 
 function check(currentRow, soluceRow) {
-    console.log(soluceRow);
-    
     const checkedScore = currentRow.map((actualColor, i) => {
         if(actualColor.color === soluceRow[i].color) {
             return {
@@ -64,4 +68,14 @@ function search(nameKey, myArray){
             return true;
         }
     }
+}
+
+function verifiedBtn() {
+    this.state.currentRow.map((currenthole, i) => {
+        if(!currenthole) {
+            return true
+        }
+        return false;
+            
+    })
 }
