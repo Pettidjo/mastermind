@@ -4,7 +4,7 @@ class Check extends Component {
 
     render() {
         return (
-            <div className="check-box">
+            <div className="check-box" style={{display: this.props.display}}>
                 <button
                 className="check-btn" 
                 onClick={this.props.check}

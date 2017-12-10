@@ -16,7 +16,7 @@ class Row extends Component {
                     />
 
                     <Score score={this.props.score} />
-                    <Check check={this.props.check} isDisabled={this.props.isDisabled} />
+                    <Check check={this.props.check} isDisabled={this.props.isDisabled} display={this.props.display}/>
                 </div>
             </div>
         );

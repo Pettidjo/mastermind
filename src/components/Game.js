@@ -24,6 +24,7 @@ class Game extends Component {
                     check={this.props.check}
                     score={this.props.game.playedScore[i]}
                     isDisabled={this.props.game.checkBtn}
+                    display={"none"}                    
                     />  
                 ) : null
                 }
@@ -34,6 +35,7 @@ class Game extends Component {
                     check={this.props.check}
                     score={this.props.game.score}
                     isDisabled={this.props.game.checkBtn}
+                    display={"block"}
                 />
             </div>
         );

@@ -8,11 +8,13 @@ const initialState = {
     playedRows: [],
     score: [{}, {}, {}, {}],
     playedScore: [],
-    checkBtn: false
+    checkBtn: false,
+    victory: false
 }
 
 export const game = (state = initialState, action) => {
-    console.log(state.playedRows);
+    console.log(state.score);
+    console.log(state.soluceRow);
     switch(action.type) {
         case gameTypes.COLOR:
             return {
@@ -26,6 +28,7 @@ export const game = (state = initialState, action) => {
                     currentRow: [{}, {}, {}, {}],
                     playedRows:[...state.playedRows, state.currentRow],
                     playedScore: [...state.playedScore, check(state.currentRow, state.soluceRow)],
+                    victory: victory(state.playedScore)
             }
         default:
             return state;
@@ -70,12 +73,15 @@ function search(nameKey, myArray){
     }
 }
 
+function isTrue(currentValue) {
+    return currentValue === "red";
+}
+
 function verifiedBtn() {
-    this.state.currentRow.map((currenthole, i) => {
-        if(!currenthole) {
-            return true
-        }
-        return false;
-            
-    })
+    this.state.currentRow.every(isTrue);
+}
+
+function victory(score) {
+    console.log(score[0]);
+    // score ? console.log(score[score.length - 1].every(isTrue)) : false
 }
