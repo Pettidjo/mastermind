@@ -13,8 +13,6 @@ const initialState = {
 }
 
 export const game = (state = initialState, action) => {
-    console.log(state.score);
-    console.log(state.soluceRow);
     switch(action.type) {
         case gameTypes.COLOR:
             return {
