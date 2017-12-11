@@ -8,7 +8,7 @@ class Check extends Component {
                 <button
                 className="check-btn" 
                 onClick={this.props.check}
-                disabled={this.props.isDisabled}
+                disabled={this.props.disabled}
                 >Check</button>
             </div>
         );

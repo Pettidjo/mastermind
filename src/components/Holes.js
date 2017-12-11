@@ -17,11 +17,13 @@ class Holes extends Component {
             <div className="holes">
                 {
                   this.props.holes.map((actualHole, i) => 
-                  <Hole key={`hole-${i}`} 
+                  <Hole key={`hole-${i}`}
+                    style={this.props.style}
                     colorChange={this.props.colorChange}
                     hole={actualHole} 
                     selected={this.state.currentHole === actualHole} 
                     onSelect={this.select}
+                    rowStatus={this.props.rowStatus}
                   />
                 )
                 }

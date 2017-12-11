@@ -8,7 +8,6 @@ const colorMaster = ["blue", "red", "yellow", "green" , "cyan" , "pink"];
 class Hole extends Component {
     openBox = () => {
         this.props.onSelect(this.props.hole);
-
     }
 
     clicOnHole = (color) => {
@@ -18,8 +17,8 @@ class Hole extends Component {
     render() {
         return (
             <div 
-            className="hole"
-            onClick={this.props.hole.color != null ? null : this.openBox}
+            className={`hole ${this.props.style}`}
+            onClick={this.props.rowStatus ? this.openBox : null }
             style={{backgroundColor: this.props.hole.color}}
             >
             { this.props.selected 

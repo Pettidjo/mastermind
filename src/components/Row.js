@@ -6,6 +6,7 @@ import Score from './Score';
 import Check from './Check';
 
 class Row extends Component {
+
     render() {
         return (
             <div>
@@ -13,10 +14,19 @@ class Row extends Component {
                     <Holes 
                         holes={this.props.row}
                         colorChange={this.props.colorChange}
+                        style={this.props.style}
+                        rowStatus={this.props.rowStatus}
                     />
 
-                    <Score score={this.props.score} />
-                    <Check check={this.props.check} isDisabled={this.props.isDisabled} display={this.props.display}/>
+                    <Score 
+                        score={this.props.score} 
+                    />
+
+                    <Check 
+                        check={this.props.check}
+                        display={this.props.display}
+                        disabled={this.props.row.some(({color}) => color === null)}
+                    />
                 </div>
             </div>
         );

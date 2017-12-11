@@ -8,7 +8,6 @@ const initialState = {
     playedRows: [],
     score: [{}, {}, {}, {}],
     playedScore: [],
-    checkBtn: false,
     victory: false
 }
 
@@ -18,7 +17,6 @@ export const game = (state = initialState, action) => {
             return {
                 ...state,
                     currentRow: state.currentRow,
-                    // checkBtn: verifiedBtn()
             }
         case gameTypes.CHECK:
             return {
@@ -71,17 +69,13 @@ function search(nameKey, myArray){
     }
 }
 
-// function verifiedBtn() {
-//     this.state.currentRow.every(isTrue);
-// }
-
 function victory(score) {
     for(let i = 0; i < score.length; i++) {
         if(score.every(isAllRed)) {
             alert('you win');
             return true;
         } else {
-            return false
+            return false;
         }
     }
 }

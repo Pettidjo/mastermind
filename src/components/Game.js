@@ -19,12 +19,13 @@ class Game extends Component {
                 { this.props.game.playedRows
                  ? this.props.game.playedRows.map((actualPlayedRow, i) => 
                     <Row key={`RowPlayed-${i}`}
+                    style={"playedRow"}
                     row={this.props.game.playedRows[i]}
                     colorChange={this.selectColor}
                     check={this.props.check}
                     score={this.props.game.playedScore[i]}
-                    isDisabled={this.props.game.checkBtn}
                     display={"none"}                    
+                    rowStatus={false}
                     />  
                 ) : null
                 }
@@ -34,8 +35,8 @@ class Game extends Component {
                     colorChange={this.selectColor}
                     check={this.props.check}
                     score={this.props.game.score}
-                    isDisabled={this.props.game.checkBtn}
                     display={"block"}
+                    rowStatus={true}
                 />
             </div>
         );

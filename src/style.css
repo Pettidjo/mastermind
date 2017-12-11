@@ -115,3 +115,9 @@ li {
     border-radius: 50%;
     margin-left: 0 4px;
 }
+
+.playedRow {
+    cursor: auto;
+    border: none;
+    padding: 3px;
+}
