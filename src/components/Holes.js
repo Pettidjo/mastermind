@@ -9,6 +9,7 @@ class Holes extends Component {
     }
 
     select = (hole) => {
+        this.props.test();
         this.state.currentHole ? this.setState({ currentHole: !hole}) : this.setState({currentHole: hole});
     }
 

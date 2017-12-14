@@ -16,7 +16,7 @@ export const game = (state = initialState, action) => {
         case gameTypes.COLOR:
             return {
                 ...state,
-                    currentRow: state.currentRow,
+                    // currentRow: state.currentRow,
             }
         case gameTypes.CHECK:
             return {

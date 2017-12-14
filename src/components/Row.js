@@ -7,6 +7,32 @@ import Check from './Check';
 
 class Row extends Component {
 
+    state = {
+        disabled: true
+    }
+
+    isNotNull = (currentValue) => {
+        return currentValue.color === null || currentValue.color === undefined;
+    }
+
+    disabled = () => {
+        if(this.props.row.some(this.isNotNull)) {
+            this.setState({
+                disabled: true
+            })
+        } else {
+            this.setState({
+                disabled: false
+            })
+        }
+    }
+
+    reset = () => {
+        this.setState({
+            disabled: !this.state.disabled
+        })
+    }
+
     render() {
         return (
             <div>
@@ -16,6 +42,7 @@ class Row extends Component {
                         colorChange={this.props.colorChange}
                         style={this.props.style}
                         rowStatus={this.props.rowStatus}
+                        test={this.disabled}
                     />
 
                     <Score 
@@ -25,7 +52,8 @@ class Row extends Component {
                     <Check 
                         check={this.props.check}
                         display={this.props.display}
-                        disabled={this.props.row.some(({color}) => color === null)}
+                        disabled={this.state.disabled}
+                        reset={this.reset}
                     />
                 </div>
             </div>
